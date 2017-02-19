@@ -34,7 +34,7 @@ namespace WebApplication6_2.Models
         [Key]
         public int id { get; set; }
 
-        public DateTime time { get; set; }
+        public string UserName { get; set; }
 
         public string link { get; set; }
 
