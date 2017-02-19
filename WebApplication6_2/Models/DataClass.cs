@@ -20,8 +20,8 @@ namespace WebApplication6_2.Models
         {
         }
 
-        public virtual DbSet<DataImg> MyEntities { get; set; }
-        public virtual DbSet<DataIP> MyEntities { get; set; }
+        public virtual DbSet<DataImg> DataImg { get; set; }
+        public virtual DbSet<DataIP> DataIP { get; set; }
 
         // Добавьте DbSet для каждого типа сущности, который требуется включить в модель. Дополнительные сведения 
         // о настройке и использовании модели Code First см. в статье http://go.microsoft.com/fwlink/?LinkId=390109.
