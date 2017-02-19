@@ -1,0 +1,10 @@
+﻿
+@{
+    ViewBag.Title = "ImageList";
+}
+
+@foreach (var t in ViewBag.listImage)
+{
+    <img src=@Url.Action("GetImage", "Images", new { link = @t.link }) width="100%" />
+}
+
