@@ -1,20 +1,30 @@
 ﻿<script src="~/Scripts/jquery-1.10.2.js"></script>
+<style type="text/css">
+    input[type="file"] 
+    {
+        display:inline;
+    }
+
+    img
+    {
+        padding-top: 10px;
+        width:100%;
+    }
+</style>
+<div class="jumbotron">
+    <h1>Загрузка картинки</h1>
+    <p class="lead">Загрузите картинку с помощбю формы, котороая представленна ниже. Просто выберите картинку и добавте текст к ней (опционально), после чего отправте нам.</p>
+</div>
 
 <div class="row">
-    <div class="col-md-8 col-md-offset-2 col-lg-offset-3">
-
-        @using (Html.BeginForm("Create", "Home", FormMethod.Post, new { enctype = "multipart/form-data", action = @Url.Action("ImageUpload", "Images") }))
+    <div class="col-md-6 col-md-offset-3">
+        @using (Html.BeginForm("Create", "Home", FormMethod.Post, new { enctype = "multipart/form-data", action = @Url.Action("ImageUpload", "Images"), @class = "form-horizontal" }))
         {
             <button type="submit">Загрузить</button>
             <input type="text" name="text" placeholder="Описание картинки" />
             <input type="file" accept="image/jpeg" name="uploadImage" id="uploadImage" placeholder="Файл картинки" />
         }
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4">
-        <img src="~/Content/lena.jpg" id="img_preview" width="100%" />
+        <img src="~/Content/lena.jpg" id="img_preview" />
     </div>
 </div>
 
