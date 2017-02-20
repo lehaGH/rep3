@@ -67,6 +67,8 @@ namespace WebApplication6_2.Controllers
             if (buff != null && buff.UserName == User.Identity.Name)
             {
                 var buff2 = new Models.ImageViewModel() { link = buff.link, text = buff.text, user = buff.UserName, data=buff.data};
+                buff2.requests = new List<Models.IPViewModel>(buff.requests.Count);
+                foreach (var t in buff.requests) buff2.requests.Add(new Models.IPViewModel() { ip = t.ip, time = t.time });
                 return View(buff2);
             }
             else 
