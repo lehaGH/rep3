@@ -1,4 +1,5 @@
-﻿
+﻿@model WebApplication6_2.Models.ImagesViewModel
+
 @{
     ViewBag.Title = "ImageList";
 }
@@ -14,12 +15,12 @@
 </style>
 
 <div class="jumbotron">
-    <h1>Ваш список картинок@((ViewBag.listImage.Count==0)? " пуст." : ".")</h1>
+    <h1>Ваш список картинок@((Model.Images.Count == 0) ? " пуст." : ".")</h1>
     <p class="lead">На данной веб страничке, показаны все ваши карнки. Кликните по понравившейся картинки и вы увидете дополнительную информацию.</p>
 </div>
 
 <div>
-    @foreach (var t in ViewBag.listImage)
+    @foreach (var t in Model.Images)
     {
         <a href="@Url.Action("ImagePage", "Images", new { link = @t.link})">
             <img src=@Url.Action("GetImage", "Images", new { link = @t.link }) />

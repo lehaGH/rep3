@@ -26,8 +26,11 @@ namespace WebApplication6_2.Controllers
         {
             var rep = new Models.ImageRepository();
             var buff=rep.GetAllItems(User.Identity.Name);
-            ViewBag.listImage = buff;
-            return View();
+
+            var Images = new Models.ImagesViewModel() { Images = new List<Models.ImageViewModel>(buff.Count) };
+
+            foreach (var t in buff) Images.Images.Add(new Models.ImageViewModel() { link = t.link, text = t.text, user = t.UserName, data = t.data });
+            return View(Images);
         }
 
         //приемник картинок юзера

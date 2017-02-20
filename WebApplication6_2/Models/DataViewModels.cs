@@ -6,6 +6,8 @@ using System.Web;
 
 namespace WebApplication6_2.Models
 {
+    public class ImagesViewModel { public List<ImageViewModel> Images;}
+
     public class ImageViewModel
     {
         [Display(Name = "ссылка на картинку")]
