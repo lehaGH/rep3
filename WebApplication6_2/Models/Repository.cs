@@ -32,8 +32,8 @@ namespace WebApplication6_2.Models
 
         public bool RemoveItem(string link, string username)
         {
-            var buff = db.DataImg.Where(x => x.link == link).First();
-            if (buff.UserName == username)
+            var buff = db.DataImg.Where(x => x.link == link).FirstOrDefault();
+            if (buff!=null && buff.UserName == username)
             {
                 db.DataImg.Remove(buff);
                 db.SaveChanges();
