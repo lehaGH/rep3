@@ -13,6 +13,7 @@ namespace WebApplication6_2.Models
         {
             db = new ModelContext();
         }
+
         public List<DataImg> GetAllItems(string username)
         {
             return db.DataImg.Where(x => x.UserName == username).ToList();
@@ -27,6 +28,22 @@ namespace WebApplication6_2.Models
         {
             db.DataImg.Add(image);
             db.SaveChanges();
+        }
+
+        public bool RemoveItem(string link, string username)
+        {
+            var buff = db.DataImg.Where(x => x.link == link).First();
+            if (buff.UserName == username)
+            {
+                db.DataImg.Remove(buff);
+                db.SaveChanges();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            
         }
 
         public void Dispose()

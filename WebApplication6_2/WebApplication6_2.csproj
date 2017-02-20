@@ -238,6 +238,7 @@
     <Content Include="Views\Images\Index.cshtml" />
     <Content Include="Views\Images\ImagePage.cshtml" />
     <Content Include="Views\Images\ImageList.cshtml" />
+    <Content Include="Views\Images\ImageRemove.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

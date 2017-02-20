@@ -66,9 +66,18 @@ namespace WebApplication6_2.Controllers
 
         //удаление картинки
         [Authorize]
-        public ActionResult ImageRemove()
+        public ActionResult ImageRemove(string link)
         {
-            return View();
+            var rep = new Models.ImageRepository();
+            if (rep.RemoveItem(link, User.Identity.Name))
+            {
+                return PartialView();
+            }
+            else
+            {
+                return View("Error");
+            }
+            
         }
 
         //получение картинки
