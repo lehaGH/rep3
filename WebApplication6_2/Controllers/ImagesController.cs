@@ -95,7 +95,18 @@ namespace WebApplication6_2.Controllers
         {
             var rep = new Models.ImageRepository();
             var buff = rep.GetItem(link);
-            return File((buff!=null) ? buff.data : new byte[]{0}, "image/jpeg");
+
+            if (buff == null)
+            {
+                return File(new byte[] { 0 }, "image/jpeg");
+            }
+            else
+            {
+                buff.requests.Add(new Models.DataIP() { time = DateTime.Now, ip = Request.UserHostAddress });
+                rep.SaveItem();
+                return File(buff.data, "image/jpeg");
+            }
+            
         }
 
     }

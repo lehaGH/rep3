@@ -20,5 +20,15 @@ namespace WebApplication6_2.Models
         public byte[] data { get; set; }
 
         public string types = "image/jpeg";
+
+        public List<IPViewModel> requests { get; set; }
+    }
+
+    public class IPViewModel
+    {
+        [Display(Name = "ip адрес клиента")]
+        public string ip { get; set; }
+        [Display(Name="Дата доступа")]
+        public DateTime time { get; set; }
     }
 }

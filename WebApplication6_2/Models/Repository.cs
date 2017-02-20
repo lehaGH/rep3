@@ -21,7 +21,7 @@ namespace WebApplication6_2.Models
 
         public DataImg GetItem(string link)
         {
-            return db.DataImg.Where(x => x.link == link).FirstOrDefault();        
+            return db.DataImg.Include("requests").Where(x => x.link == link).FirstOrDefault();        
         }
 
         public void SetItem(DataImg image)
@@ -44,6 +44,11 @@ namespace WebApplication6_2.Models
                 return false;
             }
             
+        }
+
+        public void SaveItem()
+        {
+            db.SaveChanges();
         }
 
         public void Dispose()
