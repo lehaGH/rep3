@@ -61,7 +61,7 @@ namespace WebApplication6_2.Controllers
 
             var buff2 = new Models.ImageViewModel() { link = buff.link, text = buff.text, user = buff.UserName, data=buff.data};
 
-            return View(buff2);
+            if (buff.UserName == User.Identity.Name) return View(buff2); else return View("Error");         
         }
 
         //удаление картинки
